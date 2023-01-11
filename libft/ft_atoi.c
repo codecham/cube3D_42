@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:49:33 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/01/07 18:22:49 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:07:03 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:07:05 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_atoi(const char *str)
 	int				is_n;
 	unsigned long	result;
 
+	if (!str)
+		return (0);
 	i = 0;
 	is_n = 0;
 	result = 0;

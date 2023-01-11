@@ -5,15 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 16:10:29 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/02/04 14:24:57 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:13:51 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:13:53 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_print_pourcent(void)
+int	ft_print_pourcent(t_flags flags)
 {
-	ft_putchar('%');
-	return (1);
+	int	char_count;
+
+	char_count = 0;
+	if (flags.minus == 1)
+		char_count += ft_putstrn("%", 1);
+	if (flags.minus == 1 && flags.star == 1)
+		char_count += ft_flags_display(flags.width, 1, 0);
+	else
+		char_count += ft_flags_display(flags.width, 1, flags.zero);
+	if (flags.minus == 0)
+		char_count += ft_putstrn("%", 1);
+	return (char_count);
 }

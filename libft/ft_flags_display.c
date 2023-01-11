@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_flags_display.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:59:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/01/06 18:04:38 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:07:29 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:07:31 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int	ft_flags_display(int size, int minus, int type)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
+	while (size - minus > 0)
 	{
-		(*f)(i, &s[i]);
+		if (type == 1)
+			ft_putchar_pf('0');
+		else
+			ft_putchar_pf(32);
+		size--;
 		i++;
 	}
+	return (i);
 }

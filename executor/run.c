@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   run.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 00:16:43 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/03/18 00:16:43 by dcorenti         ###   ########.fr       */
+/*   Created: 2023/01/10 21:15:13 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/11 16:33:45 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/cube.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	run(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	if (!c)
-		return ((char *)&s[i]);
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
-	}
-	return (0);
+	raycast(data);
+	return(0);
 }

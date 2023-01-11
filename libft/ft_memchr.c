@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:52:18 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/01/06 18:42:00 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:11:27 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:12:37 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*str;
-	size_t		i;
-	char		tmp;
+	size_t	i;
+	char	*tmp_s;
 
-	str = (const char *)s;
+	if (!s || n <= 0)
+		return (0);
 	i = 0;
-	tmp = c;
+	tmp_s = (char *)s;
 	while (i < n)
 	{
-		if (str[i] == tmp)
-			return ((void *)(s + i));
+		if (tmp_s[i] == c)
+			return (&tmp_s[i]);
 		i++;
 	}
 	return (0);

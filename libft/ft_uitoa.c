@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 00:09:09 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/03/18 00:10:53 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:17:17 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:17:18 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static int	ft_size(long nb)
 {
 	int	i;
 
 	i = 1;
-	if (nb < 0)
-		i++;
 	while (nb / 10)
 	{
 		i++;
@@ -39,27 +37,19 @@ static void	ft_fill_tab(char *tab, long div, long nb, int i)
 	tab[i] = '\0';
 }
 
-char	*ft_itoa(int n)
+char	*ft_uitoa(unsigned long long nb)
 {
-	long	nb;
 	int		size;
 	int		i;
 	long	div;
 	char	*tab;
 
-	nb = (long)n;
 	size = ft_size(nb);
 	i = 0;
 	div = 1;
 	tab = (char *)malloc(sizeof(char) * (size + 1));
 	if (!tab)
 		return (NULL);
-	if (nb < 0)
-	{
-		tab[i] = '-';
-		i++;
-		nb = nb * -1;
-	}
 	while (nb / div > 9)
 		div = div * 10;
 	ft_fill_tab(tab, div, nb, i);

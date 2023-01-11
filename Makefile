@@ -6,7 +6,7 @@
 #    By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 00:20:18 by dcorenti          #+#    #+#              #
-#    Updated: 2022/12/13 14:19:26 by dcorenti         ###   ########.fr        #
+#    Updated: 2023/01/11 16:33:12 by dcorenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,17 @@ LIBFT = ./libft/libft.a
 
 NAME = cube3D
 
-SRCS = 	cube3d.c \
-		utils/ft_error.c \
-		utils/ft_free_data.c \
-		utils/ft_init.c \
-		utils/ft_malloc_data.c \
+SRCS = 	main.c \
+		init/init.c \
+		init/create_map.c \
+		executor/exec.c \
+		executor/minilibx_init.c \
+		executor/utils.c \
+		executor/raycast.c \
+		executor/draw.c \
+		executor/event.c \
+		executor/run.c \
+		executor/move.c \
 
 CC = gcc
 
@@ -30,6 +36,7 @@ OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C ./libft
+	cp libft/libft.a $(NAME)
 	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(SRCS)-o $(NAME)
 
 all : $(NAME)

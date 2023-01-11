@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 20:52:09 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/12/13 14:32:10 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:17:27 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:17:28 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# define BUFFER_SIZE 32
+int	ft_putstrn(char *str, int n)
+{
+	int	i;
 
-char	*get_next_line(int fd);
-int		ft_strlen_gnl(char *str);
-int		is_line(char *save);
-char	*ft_error_gnl(char *save);
-#endif
+	i = 0;
+	if (!str)
+		return (-1);
+	while (str[i] && i < n)
+		ft_putchar_pf(str[i++]);
+	return (i);
+}

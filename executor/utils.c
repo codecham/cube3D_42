@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 00:16:43 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/03/18 00:16:43 by dcorenti         ###   ########.fr       */
+/*   Created: 2023/01/08 17:36:50 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/09 19:37:10 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/cube.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	create_trgb(int t, int r, int g, int b)
 {
-	int	i;
+	return (t << 24 | r << 16 | g << 8 | b);
+}
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	if (!c)
-		return ((char *)&s[i]);
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
-	}
-	return (0);
+int create_rgb_struct(t_color *color)
+{
+	return (color->r << 16 | color->g << 8 | color->b);
+}
+
+void my_mlx_pixel_put(t_img *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }

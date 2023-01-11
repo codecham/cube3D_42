@@ -5,19 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:56:20 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/12/13 14:32:53 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:17:45 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:17:47 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <string.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include <limits.h>
-# include "includes/ft_printf.h"
-# include "get_next_line.h"
+# include <unistd.h>
+# include "ft_printf.h"
+# define BUFFER_SIZE 32
 
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);
@@ -53,7 +54,10 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
-void		ft_striteri(char *s, void (*f)(unsigned int, char *));
+int			get_next_line(int fd, char **line);
+int			is_line(char *save);
+int			ft_error_gnl(char **save, char *temp, int fd);
+void		ft_copy_line(char *save, char *new, int i, int j);
 char		*ft_realloc(char *str, int to_add);
 
 #endif

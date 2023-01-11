@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:55:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/01/07 18:22:34 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:16:27 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:16:28 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
-	if (n <= 0)
+	if ((!s1 && !s2) || n <= 0)
 		return (0);
+	else if (!s1)
+		return (-s2[0]);
+	else if (!s2)
+		return (s1[0]);
 	i = 0;
 	while (i < n - 1 && s1[i] && s2[i] && s1[i] == s2[i])
 		i++;

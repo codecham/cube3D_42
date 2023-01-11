@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:54:09 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/01/07 18:22:22 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:15:32 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:15:33 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	char	tmp;
+	int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
-	tmp = c;
 	while (s[i] != '\0')
 	{
-		if (s[i] == tmp)
+		if (s[i] == c)
 		{
 			return ((char *)&s[i]);
 		}

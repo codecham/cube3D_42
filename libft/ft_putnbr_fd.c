@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:53:33 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/02/04 14:21:48 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:14:58 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:14:58 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_putchar_in_fd(char c, int fd)
+static void	ft_putchar(char c, int fd)
 {
 	write(fd, &c, 1);
 }
@@ -28,7 +28,7 @@ static void	ft_print(long nbr, int is_negative, int div, int fd)
 	while (div != 0)
 	{
 		nb_to_write = (nbr / div) + 48;
-		ft_putchar_in_fd(nb_to_write, fd);
+		ft_putchar(nb_to_write, fd);
 		nbr = nbr % div;
 		div = div / 10;
 	}

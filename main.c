@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 23:22:32 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/12/13 14:23:32 by dcorenti         ###   ########.fr       */
+/*   Created: 2023/01/07 18:59:21 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/08 19:49:20 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 int main(int argc, char **argv)
 {
 	t_data	*data;
-
+	
+	(void)argc;
 	(void)argv;
-	if (argc != 2)
-		return (ft_error("Wrong number of arguments"));
-	data = ft_malloc_data();
-	if (!data)
-		return (ft_error_free(data, "Malloc error"));
-	ft_init(data);
-	/*
-		all functions for run program
-	*/
-	ft_free_data(data);
+	data = (t_data *)malloc(sizeof(t_data));
+	init(data);
+	if (create_map(data) == ERROR)
+	{
+		printf("MAP ERROR\n");
+		exit(0);
+	}
+	exec(data);
 }

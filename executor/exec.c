@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 15:47:30 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/02/04 14:24:54 by dcorenti         ###   ########.fr       */
+/*   Created: 2023/01/07 19:21:20 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/10 21:24:28 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/cube.h"
 
-int	ft_print_pointer(unsigned long long p)
+void	draw_form(t_data *data)
 {
-	char	*str;
-	int		char_count;
+	int r;
+	int g;
+	int b;
+	int x;
+	int y;
 
-	char_count = 0;
-	char_count = ft_putstr("0x");
-	str = ft_itoa_hexa(p, 0);
-	char_count += ft_putstr(str);
-	if (str)
-		free(str);
-	return (char_count);
+	r = 0;
+	b = 200;
+	g = 0;
+	x = 10;
+	y = 10;
+	data->hit = 0;
+	while(x < 100)
+	{
+		while(y < 100)
+		{
+			my_mlx_pixel_put(data->game_img, x, y, create_trgb(0, r, g, b));
+			y++;
+		}
+		x++;
+		y = 10;
+	}	
+}
+
+void	exec(t_data *data)
+{
+	minilibx_init(data);
+	event(data);
 }

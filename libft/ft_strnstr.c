@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:55:28 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/01/07 18:17:48 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/03/18 00:16:36 by dcorenti          #+#    #+#             */
+/*   Updated: 2022/03/18 00:16:37 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	i = 0;
 	j = 0;
-	if (!ft_strlen(needle))
+	if (!haystack || !ft_strlen(needle))
 		return ((char *)haystack);
 	while (haystack[i] && i < len)
 	{
