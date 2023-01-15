@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec.c                                             :+:      :+:    :+:   */
+/*   set_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 19:21:20 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/15 16:52:07 by dcorenti         ###   ########.fr       */
+/*   Created: 2023/01/12 19:31:33 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/12 19:33:26 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-void	draw_form(t_data *data)
+void	set_orientation(t_data *data, char orientation)
 {
-	int r;
-	int g;
-	int b;
-	int x;
-	int y;
-
-	r = 0;
-	b = 200;
-	g = 0;
-	x = 10;
-	y = 10;
-	data->hit = 0;
-	while(x < 100)
+	if (orientation == 'N')
 	{
-		while(y < 100)
-		{
-			my_mlx_pixel_put(data->game_img, x, y, create_trgb(0, r, g, b));
-			y++;
-		}
-		x++;
-		y = 10;
+		data->dir_y = -0.99;
+		data->plane_x = -0.80;
+	}
+	if (orientation == 'S')
+	{
+		data->dir_y = 0.99;
+		data->plane_x = 0.80;
+	}
+	if (orientation == 'E')
+	{
+		data->dir_x = 0.99;
+		data->plane_y = -0.80;
+	}
+	if (orientation == 'W')
+	{
+		data->dir_x = -0.99;
+		data->plane_y = 0.80;
 	}	
 }
 
-void	exec(t_data *data)
+void	set_player_pos(t_data *data, int x, int y)
 {
-	minilibx_init(data);
-	event(data);
+	data->pos_x = x;
+	data->pos_y = y;
 }

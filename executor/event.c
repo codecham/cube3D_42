@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:21:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/10 22:08:04 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:42:51 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int close_click(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->win);
+	ft_exit(data);
 	return(0);
 }
 
@@ -29,10 +29,7 @@ int key_release(int key_code, t_data *data)
 int key_press(int key_code, t_data *data)
 {
 	if (key_code == EXIT)
-	{
-		mlx_destroy_window(data->mlx, data->win);
-		exit(0);
-	}
+		ft_exit(data);
 	else
 		move(data, key_code);
 	return(0);

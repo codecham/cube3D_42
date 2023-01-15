@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 05:38:09 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/08 19:31:39 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:52:16 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	minilibx_init(t_data *data)
 		return(ERROR);
 	if (mlx_img_init(data) != SUCCESS)
 		return(ERROR);
+	// if (ft_charge_textures(data) != SUCCESS)
+	// 	return(ERROR);
 	return(SUCCESS);
 }
