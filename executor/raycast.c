@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:32:55 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/11 19:36:09 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/15 19:18:59 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,28 +93,6 @@ void	size_ray(t_data *data)
 	data->line_height -= data->screen_height / 50;
 }
 
-void	print_value(t_data *data, int x)
-{
-	printf("%d --> ", x);
-	// printf("camera_x = %f | ", data->camera_x);
-	// printf("ray_dir_x = %f | ", data->ray_dir_x);
-	// printf("ray_dir_y = %f | ", data->ray_dir_y);
-	// printf("map_x = %d | ", data->map_x);
-	// printf("map_x = %d | ", data->map_y);
-	// printf("side_dist_x = %f | ", data->side_dist_x);
-	// printf("side_dist_y = %f | ", data->side_dist_y);
-	// printf("step_x = %d | ", data->step_x);
-	// printf("step_y = %d | ", data->step_y);
-	// printf("delta_x = %f | ", data->delta_dist_x);
-	// printf("delta_y = %f |", data->delta_dist_y);
-	// printf("perp_wall = %f\n", data->perp_wall_dist);
-	// printf("line_height = %d |", data->line_height);
-	printf("ray_dist = %f | ", data->wall_dist);
-	printf("line_height = %d | ", data->line_height);
-	printf("\n");
-	(void)data;
-}
-
 int raycast(t_data *data)
 {
 	int x;
@@ -132,7 +110,6 @@ int raycast(t_data *data)
 		set_step(data);
 		dda_algorithm(data);
 		size_ray(data);
-		// print_value(data, x);
 		draw(data, x);
 		x++;
 	}

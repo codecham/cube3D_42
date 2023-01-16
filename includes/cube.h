@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/15 18:12:29 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/16 03:32:14 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,10 @@ typedef struct	s_data
 	struct	s_color *w_south;	// for testing
 	struct	s_color *w_east;	// for testing
 	struct	s_color *w_west;	// for testing
-	struct	s_tex	*text_north;
-	struct	s_tex	*text_south;
-	struct	s_tex	*text_east;
-	struct	s_tex	*text_west;
+	struct	s_img	*text_north;
+	struct	s_img	*text_south;
+	struct	s_img	*text_east;
+	struct	s_img	*text_west;
 	struct	s_img	*game_img;
 	char			*path_north;
 	char			*path_south;

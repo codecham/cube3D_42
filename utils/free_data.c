@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:46:48 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/15 17:31:23 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/16 03:29:00 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	free_data(t_data *data)
 	if (data->path_east)
 		free(data->path_east);
 	if (data->path_west)
-		free(data->path_north);
+		free(data->path_west);
 	// if (data->game_img)
 	// 	mlx_destroy_image(data->mlx, data->game_img->addr);
 	// if (data->text_north)

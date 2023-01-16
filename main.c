@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:59:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/15 18:24:38 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/16 04:04:37 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	ft_for_test(t_data *data)
 	data->floor->r = 0;
 	data->floor->g = 0;
 	data->floor->b = 0;
-	data->path_north = ft_strdup("./textures/NO.xpm");
-	data->path_south = ft_strdup("./textures/SO.xpm");
-	data->path_east = ft_strdup("./textures/EA.xpm");
-	data->path_west = ft_strdup("./textures/WE.xpm");
+	data->path_north = ft_strdup("./textures/bricks_red.xpm");
+	data->path_south = ft_strdup("./textures/bricks_blue.xpm");
+	data->path_east = ft_strdup("./textures/bricks_green.xpm");
+	data->path_west = ft_strdup("./textures/bricks_yellow.xpm");
 }
 
 
@@ -60,8 +60,8 @@ int main(int argc, char **argv)
 {
 	t_data	*data;
 	
-	// (void)argc;
-	// (void)argv;
+	(void)argc;
+	(void)argv;
 	data = (t_data *)malloc(sizeof(t_data));
 	init(data);
 	if (malloc_all(data) == ERROR)
