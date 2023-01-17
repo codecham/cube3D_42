@@ -6,19 +6,30 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:07:37 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/16 03:48:43 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:16:35 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-int ft_xpm_to_img(t_data *data, t_img *img, char *file)
+// int ft_xpm_to_img(t_data *data, t_img *img, char *file)
+// {
+// 	img->img = mlx_xpm_file_to_image(data->mlx, file, &img->width, &img->height);
+// 	if (!img->img)
+// 		return(ERROR);
+// 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
+// 	if (!img->addr)
+// 		return(ERROR);
+// 	return(SUCCESS);
+// }
+
+int ft_xpm_to_img(t_data *data, t_tex *tex, char *file)
 {
-	img->img = mlx_xpm_file_to_image(data->mlx, file, &img->width, &img->height);
-	if (!img->img)
+	tex->img = mlx_xpm_file_to_image(data->mlx, file, &tex->width, &tex->height);
+	if (!tex->img)
 		return(ERROR);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
-	if (!img->addr)
+	tex->addr = (int *)mlx_get_data_addr(tex->img, &tex->bits_per_pixel, &tex->line_length, &tex->endian);
+	if (!tex->addr)
 		return(ERROR);
 	return(SUCCESS);
 }

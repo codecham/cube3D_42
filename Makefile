@@ -6,7 +6,7 @@
 #    By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 00:20:18 by dcorenti          #+#    #+#              #
-#    Updated: 2023/01/12 19:41:44 by dcorenti         ###   ########.fr        #
+#    Updated: 2023/01/16 20:37:53 by dcorenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRCS = 	main.c \
 		executor/raycast.c \
 		executor/run.c \
 		executor/utils.c \
+		executor/get_tex_pixl.c \
+		executor/wall_tex.c \
 
 CC = gcc
 

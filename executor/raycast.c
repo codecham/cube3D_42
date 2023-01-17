@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:32:55 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/15 19:18:59 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 04:52:41 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	get_wall_text(t_data *data)
 	if (data->side == 0)
 	{
 		if (data->step_x > 0 && data->map_x > (int)data->pos_x)
-			data->wall_text = WEST;
-		else
 			data->wall_text = EAST;
+		else
+			data->wall_text = WEST;
 	}
 	else
 	{
@@ -89,8 +89,14 @@ void	size_ray(t_data *data)
 		data->wall_dist = fabs((data->map_x - data->pos_x + (1 - data->step_x) / 2) / data->ray_dir_x);
 	else
 		data->wall_dist = fabs((data->map_y - data->pos_y + (1 - data->step_y) / 2) / data->ray_dir_y);
-	data->line_height = fabs(data->screen_height / data->wall_dist);
-	data->line_height -= data->screen_height / 50;
+	data->line_height = fabs((data->screen_height / data->wall_dist));
+	// data->line_height -= data->screen_height / 50;
+	data->draw_start = (-1 * (data->line_height)) / 2 + data->screen_height / 2;
+	data->draw_end = data->line_height / 2 + data->screen_height / 2;
+	if (data->draw_start < 0)
+		data->draw_start = 0;
+	if (data->draw_end >= data->screen_height)
+		data->draw_end = data->screen_height - 1;
 }
 
 int raycast(t_data *data)
@@ -110,6 +116,7 @@ int raycast(t_data *data)
 		set_step(data);
 		dda_algorithm(data);
 		size_ray(data);
+		wall_tex(data);
 		draw(data, x);
 		x++;
 	}

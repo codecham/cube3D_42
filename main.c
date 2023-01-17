@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:59:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/16 04:04:37 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 04:46:23 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 void	ft_for_test(t_data *data)
 {
-	data->pos_x = 5;
-	data->pos_y = 7;
+	data->pos_x = 5.5;
+	data->pos_y = 7.5;
 	data->dir_x = 0;
 	data->dir_y = -0.99;
 	data->plane_x = -0.80;
@@ -45,9 +45,9 @@ void	ft_for_test(t_data *data)
 	data->w_west->b = 0;
 	data->ceiling->r = 0;
 	data->ceiling->g = 0;
-	data->ceiling->b = 0;
+	data->ceiling->b = 150;
 	data->floor->r = 0;
-	data->floor->g = 0;
+	data->floor->g = 150;
 	data->floor->b = 0;
 	data->path_north = ft_strdup("./textures/bricks_red.xpm");
 	data->path_south = ft_strdup("./textures/bricks_blue.xpm");
@@ -66,9 +66,9 @@ int main(int argc, char **argv)
 	init(data);
 	if (malloc_all(data) == ERROR)
 		ft_error(data, "Malloc error");
-	// ft_for_test(data);
-	// if (create_map(data) == ERROR)
-	// 	ft_error(data, "Map error");
+	ft_for_test(data);
+	if (create_map(data) == ERROR)
+		ft_error(data, "Map error");
 	/*
 		code pour le parsing. 
 	*/

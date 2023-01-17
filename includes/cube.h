@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/16 03:32:14 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 04:50:32 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,13 @@ typedef struct		s_img
 
 typedef	struct				s_tex
 {
-	void					*img;
-	int						*addr;
-	int						bpp;
-	int						size_line;
-	int						endian;
-	int						width;
-	int						height;
-	char					type;
+	void		*img;
+	int			*addr;
+	int			bits_per_pixel;
+	int			line_length;		
+	int			width;
+	int			height;
+	int			endian;
 }							t_tex;
 
 typedef struct	s_data
@@ -103,6 +102,7 @@ typedef struct	s_data
 	double			perp_wall_dist;
 	double			wall_dist;
 	double			speed;
+	double			tex_pos;
 	int				wall_text;
 	int				step_x;
 	int				step_y;
@@ -114,19 +114,28 @@ typedef struct	s_data
 	int				screen_width;
 	int				map_width;
 	int				map_height;
-	int				line_height;
+	double			line_height;
 	int				draw_start;
 	int				draw_end;
+	int				tex_x;
+	int				tex_y;
+	double			step_tex;
+	unsigned int	color;
 	struct	s_color *floor;
 	struct	s_color *ceiling;
 	struct	s_color *w_north; 	// for testing
 	struct	s_color *w_south;	// for testing
 	struct	s_color *w_east;	// for testing
 	struct	s_color *w_west;	// for testing
-	struct	s_img	*text_north;
-	struct	s_img	*text_south;
-	struct	s_img	*text_east;
-	struct	s_img	*text_west;
+	// struct	s_img	*text_north;
+	// struct	s_img	*text_south;
+	// struct	s_img	*text_east;
+	// struct	s_img	*text_west;
+	// struct	s_img	*game_img;
+	struct	s_tex	*text_north;
+	struct	s_tex	*text_south;
+	struct	s_tex	*text_east;
+	struct	s_tex	*text_west;
 	struct	s_img	*game_img;
 	char			*path_north;
 	char			*path_south;
@@ -157,6 +166,8 @@ int		run(t_data *data);
 void	event(t_data *data);
 void	move(t_data *data, int key_code);
 int		ft_charge_textures(t_data *data);
+void	wall_tex(t_data *data);
+void	get_tex_pixl(t_data *data);
 
 /* parsing */
 

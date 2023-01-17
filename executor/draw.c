@@ -6,39 +6,42 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:32:00 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/15 17:31:44 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 04:51:53 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-void	draw_floor_ceilling()
+int		get_height_tex(t_data *data)
 {
-	
+	if (data->wall_text == NORTH)
+		return(data->text_north->height);
+	else if (data->wall_text == SOUTH)
+		return(data->text_south->height);
+	else if (data->wall_text == EAST)
+		return(data->text_east->height);
+	else
+		return(data->text_west->height);
 }
 
-void	draw_vert_line(t_data *data, int draw_start, int draw_end, int x)
+void	draw(t_data *data, int x)
 {
 	int y;
-	int color;
+	int height;
 
 	y = 0;
-	while(y < draw_start)
+	height = get_height_tex(data);
+	while(y < data->draw_start)
 	{
 		my_mlx_pixel_put(data->game_img, x, y, create_rgb_struct(data->ceiling));
 		y++;
 	}
-	while(y < draw_end)
+	while(y <= data->draw_end)
 	{
-		if (data->wall_text == NORTH)
-			color = create_rgb_struct(data->w_north);
-		else if(data->wall_text == SOUTH)
-			color = create_rgb_struct(data->w_south);
-		else if(data->wall_text == WEST)
-			color = create_rgb_struct(data->w_west);
-		else if(data->wall_text == EAST)
-			color = create_rgb_struct(data->w_east);
-		my_mlx_pixel_put(data->game_img, x, y, color);
+		data->tex_y = (int)data->tex_pos & (height - 1);
+		data->tex_pos += data->step_tex;
+		get_tex_pixl(data);
+		my_mlx_pixel_put(data->game_img, x, y, data->color);
 		y++;
 	}
 	while(y < data->screen_height)
@@ -46,15 +49,4 @@ void	draw_vert_line(t_data *data, int draw_start, int draw_end, int x)
 		my_mlx_pixel_put(data->game_img, x, y, create_rgb_struct(data->floor));
 		y++;
 	}
-}
-
-void	draw(t_data *data, int x)
-{
-	data->draw_start = -data->line_height / 2 + data->screen_height / 2;
-	data->draw_end = data->line_height / 2 + data->screen_height / 2;
-	if (data->draw_start < 0)
-		data->draw_start = 0;
-	if (data->draw_end >= data->screen_height)
-		data->draw_end = data->screen_height - 1;
-	draw_vert_line(data, data->draw_start, data->draw_end, x);
 }
