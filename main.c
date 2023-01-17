@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:59:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 04:46:23 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:12:04 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,28 @@ void	ft_for_test(t_data *data)
 	data->side = 0;
 	data->screen_height = screenHeight;
 	data->screen_width = screenWidth;
-	data->w_north->r = 0;
-	data->w_north->g = 0;
-	data->w_north->b = 255;
-	data->w_south->r = 255;
-	data->w_south->g = 0;
-	data->w_south->b = 0;
-	data->w_east->r = 252;
-	data->w_east->g = 255;
-	data->w_east->b = 38;
-	data->w_west->r = 0;
-	data->w_west->g = 255;
-	data->w_west->b = 0;
+	// data->w_north->r = 0;
+	// data->w_north->g = 0;
+	// data->w_north->b = 255;
+	// data->w_south->r = 255;
+	// data->w_south->g = 0;
+	// data->w_south->b = 0;
+	// data->w_east->r = 252;
+	// data->w_east->g = 255;
+	// data->w_east->b = 38;
+	// data->w_west->r = 0;
+	// data->w_west->g = 255;
+	// data->w_west->b = 0;
 	data->ceiling->r = 0;
 	data->ceiling->g = 0;
 	data->ceiling->b = 150;
 	data->floor->r = 0;
 	data->floor->g = 150;
 	data->floor->b = 0;
-	data->path_north = ft_strdup("./textures/bricks_red.xpm");
-	data->path_south = ft_strdup("./textures/bricks_blue.xpm");
-	data->path_east = ft_strdup("./textures/bricks_green.xpm");
-	data->path_west = ft_strdup("./textures/bricks_yellow.xpm");
+	data->path_north = ft_strdup("./textures/blue.xpm");
+	data->path_south = ft_strdup("./textures/bricks_yellow.xpm");
+	data->path_east = ft_strdup("./textures/grey.xpm");
+	data->path_west = ft_strdup("./textures/wood.xpm");
 }
 
 

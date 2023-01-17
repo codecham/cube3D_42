@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:23:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/16 20:14:32 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:12:29 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	malloc_color(t_data *data)
 	data->ceiling = NULL;
 	data->floor = (t_color *)malloc(sizeof(t_color));
 	data->ceiling = (t_color *)malloc(sizeof(t_color));
-	data->w_north = (t_color *)malloc(sizeof(t_color)); 	// FOR TEST, A DELETE
-	data->w_south = (t_color *)malloc(sizeof(t_color));		// FOR TEST, A DELETE
-	data->w_east = (t_color *)malloc(sizeof(t_color));		// FOR TEST, A DELETE
-	data->w_west = (t_color *)malloc(sizeof(t_color));		// FOR TEST, A DELETE
+	// data->w_north = (t_color *)malloc(sizeof(t_color)); 	// FOR TEST, A DELETE
+	// data->w_south = (t_color *)malloc(sizeof(t_color));		// FOR TEST, A DELETE
+	// data->w_east = (t_color *)malloc(sizeof(t_color));		// FOR TEST, A DELETE
+	// data->w_west = (t_color *)malloc(sizeof(t_color));		// FOR TEST, A DELETE
 	if (!data->floor || !data->ceiling)
 		return(ERROR);
 	return(SUCCESS);

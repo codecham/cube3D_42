@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 04:50:32 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:42:10 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,6 @@ typedef struct	s_color
 	int b;	
 }	t_color;
 
-typedef struct	s_xpm_img
-{
-	void	*mlx;
-	void	*img;
-	char	*relative_path;
-	int		img_width;
-	int		img_height;
-}	t_xpm_img;
-
 typedef struct		s_img
 {
 	void		*img;
@@ -70,7 +61,7 @@ typedef struct		s_img
 	int			endian;
 }	t_img;
 
-typedef	struct				s_tex
+typedef	struct		s_tex
 {
 	void		*img;
 	int			*addr;
@@ -79,7 +70,7 @@ typedef	struct				s_tex
 	int			width;
 	int			height;
 	int			endian;
-}							t_tex;
+}	t_tex;
 
 typedef struct	s_data
 {
@@ -119,19 +110,16 @@ typedef struct	s_data
 	int				draw_end;
 	int				tex_x;
 	int				tex_y;
+	int				move_up;
+	int				move_down;
+	int				move_left;
+	int				move_right;
+	int				rotate_left;
+	int				rotate_right;
 	double			step_tex;
 	unsigned int	color;
 	struct	s_color *floor;
 	struct	s_color *ceiling;
-	struct	s_color *w_north; 	// for testing
-	struct	s_color *w_south;	// for testing
-	struct	s_color *w_east;	// for testing
-	struct	s_color *w_west;	// for testing
-	// struct	s_img	*text_north;
-	// struct	s_img	*text_south;
-	// struct	s_img	*text_east;
-	// struct	s_img	*text_west;
-	// struct	s_img	*game_img;
 	struct	s_tex	*text_north;
 	struct	s_tex	*text_south;
 	struct	s_tex	*text_east;
@@ -164,7 +152,7 @@ int 	create_rgb_struct(t_color *color);
 void	draw(t_data *data, int x);
 int		run(t_data *data);
 void	event(t_data *data);
-void	move(t_data *data, int key_code);
+void	move(t_data *data);
 int		ft_charge_textures(t_data *data);
 void	wall_tex(t_data *data);
 void	get_tex_pixl(t_data *data);

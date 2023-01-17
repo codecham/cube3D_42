@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:29:33 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/11 19:39:20 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:50:37 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ void	rotate(t_data *data, int advance)
 	data->plane_y = plane * sin(advance * data->speed) + data->plane_y * cos(advance * data->speed);
 }
 
-void	move_left_right(t_data *data, int key_code)
+void	move_left_right(t_data *data)
 {
-	if (key_code == KEY_LEFT)
+	if (data->move_left == 1)
 	{
 		if (data->map[(int)(data->pos_y - data->dir_x * data->speed)][(int)(data->pos_x)] != 1)
 			data->pos_y += -data->dir_x * data->speed;
 		if (data->map[(int)data->pos_y][(int)(data->pos_x + data->dir_y * data->speed)] != 1)
 			data->pos_x += data->dir_y * data->speed;
 	}
-	else if (key_code == KEY_RIGHT)
+	if (data->move_right == 1)
 	{
 		if (data->map[(int)(data->pos_y + data->dir_x * data->speed)][(int)(data->pos_x)] != 1)
 			data->pos_y -= -data->dir_x * data->speed;
@@ -43,16 +43,16 @@ void	move_left_right(t_data *data, int key_code)
 	}
 }
 
-void	move_down_up(t_data *data, int key_code)
+void	move_down_up(t_data *data)
 {
-	if (key_code == KEY_UP)
+	if (data->move_up == 1)
 	{
 		if (data->map[(int)(data->pos_y)][(int)(data->pos_x + data->dir_x * data->speed)] != 1)
 			data->pos_x += data->dir_x * data->speed;
 		if (data->map[(int)(data->pos_y + data->dir_y * data->speed)][(int)(data->pos_x)] != 1)
 			data->pos_y += data->dir_y * data->speed;
 	}
-	else if (key_code == KEY_DOWN)
+	if (data->move_down == 1)
 	{
 		if (data->map[(int)(data->pos_y)][(int)(data->pos_x - data->dir_x * data->speed)] != 1)
 			data->pos_x -= data->dir_x * data->speed;
@@ -61,14 +61,14 @@ void	move_down_up(t_data *data, int key_code)
 	}
 }
 
-void	move(t_data *data, int key_code)
+void	move(t_data *data)
 {
-	if (key_code == KEY_UP || key_code == KEY_DOWN)
-		move_down_up(data, key_code);
-	else if (key_code == KEY_LEFT || key_code == KEY_RIGHT)
-		move_left_right(data, key_code);
-	else if (key_code == ROTATE_LEFT)
+	if (data->move_up == 1 || data->move_down == 1)
+		move_down_up(data);
+	if (data->move_left == 1 || data->move_right ==1)
+		move_left_right(data);
+	if (data->rotate_left == 1)
 		rotate(data, -1);
-	else if (key_code == ROTATE_RIGHT)
+	if (data->rotate_right == 1)
 		rotate(data, 1);
 }
