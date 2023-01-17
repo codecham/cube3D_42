@@ -6,26 +6,26 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:19:30 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 04:40:57 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:49:05 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-int 	ft_get_tex_width(t_data *data)
+int	ft_get_tex_width(t_data *data)
 {
-	int width;
+	int	width;
 
 	width = 64;
 	if (data->wall_text == NORTH)
-		return(data->text_north->width);
+		return (data->text_north->width);
 	if (data->wall_text == SOUTH)
-		return(data->text_south->width);
+		return (data->text_south->width);
 	if (data->wall_text == EAST)
-		return(data->text_east->width);
+		return (data->text_east->width);
 	if (data->wall_text == WEST)
-		return(data->text_west->width);
-	return(width);
+		return (data->text_west->width);
+	return (width);
 }
 
 void	wall_tex(t_data *data)
@@ -45,5 +45,6 @@ void	wall_tex(t_data *data)
 	else
 		data->tex_x = width + data->tex_x - 1;
 	data->step_tex = 1 * width / data->line_height;
-	data->tex_pos = (data->draw_start - data->screen_height / 2 + data->line_height / 2) * data->step_tex -1;
+	data->tex_pos = (data->draw_start - data->screen_height / 2
+			+ data->line_height / 2) * data->step_tex -1;
 }

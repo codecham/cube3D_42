@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:15:13 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 20:49:28 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:47:58 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	run(t_data *data)
 {
 	move(data);
 	raycast(data);
-	return(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:37:51 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 04:46:54 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:53:15 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ int	create_map(t_data *data)
 	int i;
 
 	i = 0;
-	data->map = (int **)malloc(sizeof(int *) * mapHeight);
-	while(i < mapHeight)
+	data->map = (int **)malloc(sizeof(int *) * 24);
+	while(i < 24)
 	{
-		data->map[i] = (int *)malloc(sizeof(int) * mapWidth);
+		data->map[i] = (int *)malloc(sizeof(int) * 24);
 		i++;
 	}
 	i = 1;
