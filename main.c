@@ -12,18 +12,11 @@
 
 #include "includes/cube.h"
 
-/*
-
-	Pour les tests j'ai fais une petite fonction ft_for_test et create_map dans laquelle je remplis la structure avec des données brutes.
-	Je l'ai commentée ici pour que ce soit toi qui remplisse cette strucutre avec les donnée du fichier .cub
-
-*/
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	*data;
 	int		fd;
-	
+
 	check_argument(argc, argv, &fd);
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
