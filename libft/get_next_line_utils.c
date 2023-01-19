@@ -5,20 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 00:17:33 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/03/18 00:17:34 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/01/07 18:36:10 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/19 00:00:04 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_strlen_gnl(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
+}
+
 int	is_line(char *save)
 {
 	int	i;
 
+	i = 0;
 	if (!save)
 		return (-2);
-	i = 0;
 	while (save[i])
 	{
 		if (save[i] == '\n')
@@ -28,21 +40,9 @@ int	is_line(char *save)
 	return (-1);
 }
 
-int	ft_error_gnl(char **save, char *temp, int fd)
+char	*ft_error_gnl(char *save)
 {
-	if (save[fd])
-		free(save[fd]);
-	if (temp)
-		free(temp);
-	return (-1);
-}
-
-void	ft_copy_line(char *save, char *new, int i, int j)
-{
-	while (save[i + j])
-	{
-		new[j] = save[i + j];
-		j++;
-	}
-	new[j] = '\0';
+	if (save)
+		free(save);
+	return (NULL);
 }

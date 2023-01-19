@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 22:54:47 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/19 05:30:15 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@
 # define SOUTH 2
 # define WEST 3
 # define EAST 4
+# define CEILING 5
+# define FLOOR 6
+# define RED 7
+# define GREEN 8
+# define BLUE 9
 
 typedef struct s_color
 {
@@ -127,6 +132,7 @@ typedef struct s_data
 	char			*path_east;
 	char			*path_west;
 	char			orientation;
+	char			**file_content;
 }	t_data;
 
 /* utils */
@@ -138,6 +144,8 @@ int		malloc_all(t_data *data);
 void	set_player_pos(t_data *data, int x, int y);
 void	set_orientation(t_data *data, char orientation);
 void	ft_error(t_data *data, char *message);
+void	ft_error_line(t_data *data, int line);
+char	*trim_space(char *str);
 
 /* exec */
 int		minilibx_init(t_data *data);
@@ -153,7 +161,17 @@ void	move(t_data *data);
 int		ft_charge_textures(t_data *data);
 void	wall_tex(t_data *data);
 void	get_tex_pixl(t_data *data);
+void	file_exist(t_data *data, int identifier);
 
 /* parsing */
+
+void	check_argument(int argc, char **argv, int *fd);
+void	load_file_content(t_data *data, int fd);
+void	parsing(t_data *data, int fd);
+void	ft_split_cub(t_data *data, char *str);
+void 	check_dup_alloc(t_data *data, int identifer);
+int		is_empty_line(char *str);
+void	add_color_in_data(t_data *data, char *str, int identifier);
+int		parse_path_and_colors(t_data *data);
 
 #endif

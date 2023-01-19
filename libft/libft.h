@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 00:17:45 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/03/18 00:17:47 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/19 02:43:49 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,11 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
-int			get_next_line(int fd, char **line);
-int			is_line(char *save);
-int			ft_error_gnl(char **save, char *temp, int fd);
-void		ft_copy_line(char *save, char *new, int i, int j);
 char		*ft_realloc(char *str, int to_add);
+char		*get_next_line(int fd);
+int			ft_strlen_gnl(char *str);
+int			is_line(char *save);
+char		*ft_error_gnl(char *save);
+char		*ft_add_char_to_string(char *str, char c);
 
 #endif

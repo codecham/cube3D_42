@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:23:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 22:57:46 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/19 04:21:33 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ int	malloc_color(t_data *data)
 	data->ceiling = (t_color *)malloc(sizeof(t_color));
 	if (!data->floor || !data->ceiling)
 		return (ERROR);
+	data->ceiling->r = -1;
+	data->ceiling->g = -1;
+	data->ceiling->b = -1;
+	data->floor->r = -1;
+	data->floor->g = -1;
+	data->floor->b = -1;
 	return (SUCCESS);
 }
 

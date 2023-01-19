@@ -5,53 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 00:17:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2022/03/18 00:17:40 by dcorenti         ###   ########.fr       */
+/*   Created: 2022/01/07 18:36:17 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/19 00:02:47 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*get_line(char *save)
+static char	*get_line(char *save, int i)
 {
-	int		i;
-	char	*line;
+	char	*new;
 
-	i = 0;
 	while (save && save[i] && save[i] != '\n')
 		i++;
-	line = (char *)malloc((i + 1) * sizeof(char));
-	if (!line)
+	if (is_line(save) >= 0)
+		i++;
+	if (i == 0)
+		return (NULL);
+	new = (char *)malloc(sizeof(char) * i + 1);
+	if (!new)
 		return (NULL);
 	i = 0;
 	while (save && save[i] && save[i] != '\n')
 	{
-		line[i] = save[i];
+		new[i] = save[i];
 		i++;
 	}
-	line[i] = '\0';
-	return (line);
+	if (is_line(save) >= 0)
+	{
+		new[i] = '\n';
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }
 
-static char	*super_join(char *save, char *temp, int lu)
+static char	*join(char *save, char *tmp, int lu)
 {
-	char	*new;
 	int		i;
 	int		j;
+	char	*new;
 
-	new = (char *)malloc((ft_strlen(save) + lu + 1) * sizeof(char));
+	i = ft_strlen_gnl(save);
+	j = 0;
+	new = (char *)malloc(sizeof(char) * i + lu + 1);
 	if (!new)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (save && save[i])
 	{
 		new[i] = save[i];
 		i++;
 	}
-	j = 0;
 	while (j < lu)
 	{
-		new[i + j] = temp[j];
+		new[i + j] = tmp[j];
 		j++;
 	}
 	new[i + j] = '\0';
@@ -60,69 +68,69 @@ static char	*super_join(char *save, char *temp, int lu)
 	return (new);
 }
 
-static char	*update_line(char *save, int *lu, int j)
+static char	*update_line(char *save)
 {
 	char	*new;
 	int		i;
+	int		j;
 
-	*lu = 0;
 	i = is_line(save);
+	j = 0;
 	if (i < 0)
 	{
 		if (i == -1)
 			free(save);
-		return (0);
+		return (NULL);
 	}
-	new = (char *)malloc((ft_strlen(save) - i + 1) * sizeof(char));
+	new = (char *)malloc(sizeof(char) * ft_strlen_gnl(save) - i + 1);
 	if (!new)
-	{
-		*lu = -1;
-		free(save);
-		return (0);
-	}
+		return (NULL);
 	i++;
-	ft_copy_line(save, new, i, j);
+	while (save[i + j])
+	{
+		new[j] = save[i + j];
+		j++;
+	}
+	new[j] = '\0';
 	if (save)
 		free(save);
 	return (new);
 }
 
-static int	get_next_l(int fd, char **line, char **save, int lu)
+static char	*get_next_line_ext(int fd, char *line, int lu)
 {
-	*line = get_line(save[fd]);
-	if (!line)
-		return (-1);
-	save[fd] = update_line(save[fd], &lu, 0);
-	if (!save[fd])
-		return (lu);
-	return (1);
+	static char	*save;
+	char		tmp[BUFFER_SIZE + 1];
+
+	if (read(fd, line, 0) < 0)
+		return (ft_error_gnl(save));
+	if (is_line(save) < 0)
+	{
+		lu = read(fd, tmp, BUFFER_SIZE);
+		while (is_line(save) < 0 && lu > 0)
+		{
+			save = join(save, tmp, lu);
+			if (!save)
+				return (ft_error_gnl(save));
+			if (is_line(save) < 0 && lu >= 0)
+				lu = read(fd, tmp, BUFFER_SIZE);
+		}
+	}
+	line = get_line(save, 0);
+	if (line == NULL)
+		return (ft_error_gnl(save));
+	save = update_line(save);
+	return (line);
 }
 
-int	get_next_line(int fd, char **line)
+char	*get_next_line(int fd)
 {
-	char		*temp;
-	static char	*save[10240];
-	int			lu;
+	char	*line;
+	int		lu;
 
-	if (BUFFER_SIZE <= 0)
-		return (-1);
-	temp = (char *) malloc(sizeof (char) * (BUFFER_SIZE + 1));
-	if (!temp)
-		return (-1);
-	if (!line || read(fd, temp, 0) < 0)
-		return (ft_error_gnl(save, temp, fd));
-	*line = NULL;
-	if (is_line(save[fd]) < 0)
-		lu = read(fd, temp, BUFFER_SIZE);
-	while (is_line(save[fd]) < 0 && lu > 0)
-	{
-		save[fd] = super_join(save[fd], temp, lu);
-		if (!save[fd])
-			return (-1);
-		if (is_line(save[fd]) < 0 && lu >= 0)
-			lu = read(fd, temp, BUFFER_SIZE);
-	}
-	if (temp)
-		free(temp);
-	return (get_next_l(fd, line, save, lu));
+	line = NULL;
+	lu = 0;
+	if (BUFFER_SIZE <= 0 || fd < 0)
+		return (ft_error_gnl(0));
+	return (get_next_line_ext(fd, line, lu));
 }

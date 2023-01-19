@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 05:16:51 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 22:56:17 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/19 00:47:31 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	init(t_data *data)
 	data->move_right = 0;
 	data->rotate_left = 0;
 	data->rotate_right = 0;
+	data->file_content = NULL;
 }

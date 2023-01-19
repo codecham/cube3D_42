@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   is_empty_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 19:35:49 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 04:52:30 by dcorenti         ###   ########.fr       */
+/*   Created: 2023/01/19 03:40:07 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/19 03:42:02 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-void	ft_error(t_data *data, char *message)
+int	is_empty_line(char *str)
 {
-	printf("Error\n");
-	printf("%s\n", message);
-	ft_exit(data);
-}
+	int	i;
 
-void	ft_error_line(t_data *data, int line)
-{
-	printf("Error\n");
-	printf("Line %d in cub file is not correct\n", line);
-	ft_exit(data);
+	if (!str)
+		return (1);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ' && str[i] != '\n')
+			return (0);
+		i++;
+	}
+	return (1);
 }

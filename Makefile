@@ -6,13 +6,13 @@
 #    By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 00:20:18 by dcorenti          #+#    #+#              #
-#    Updated: 2023/01/16 20:37:53 by dcorenti         ###   ########.fr        #
+#    Updated: 2023/01/19 05:31:09 by dcorenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBFT = ./libft/libft.a
 
-NAME = cube3D
+NAME = cub3D
 
 SRCS = 	main.c \
 		utils/create_map.c \
@@ -20,8 +20,11 @@ SRCS = 	main.c \
 		utils/free_data.c \
 		utils/ft_error.c \
 		utils/init.c \
+		utils/is_empty_line.c \
 		utils/malloc_all.c \
 		utils/set_player.c \
+		utils/trim_space.c \
+		utils/file_exist.c \
 		executor/charge_textures.c \
 		executor/draw.c \
 		executor/event.c \
@@ -33,6 +36,13 @@ SRCS = 	main.c \
 		executor/utils.c \
 		executor/get_tex_pixl.c \
 		executor/wall_tex.c \
+		parsing/add_color_in_data.c \
+		parsing/check_argument.c \
+		parsing/check_dup_alloc.c \
+		parsing/ft_split_cub.c \
+		parsing/load_file_content.c \
+		parsing/parse_path_and_colors.c \
+		parsing/parsing.c \
 
 CC = gcc
 
