@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 05:30:15 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/19 22:51:02 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@
 # define RED 7
 # define GREEN 8
 # define BLUE 9
+# define S_NORTH 6
+# define S_SOUTH 7
+# define S_EAST 8
+# define S_WEST 9
 
 typedef struct s_color
 {
@@ -141,11 +145,15 @@ int		create_map(t_data *data);
 void	free_data(t_data *data);
 void	ft_exit(t_data *data);
 int		malloc_all(t_data *data);
-void	set_player_pos(t_data *data, int x, int y);
-void	set_orientation(t_data *data, char orientation);
 void	ft_error(t_data *data, char *message);
 void	ft_error_line(t_data *data, int line);
+void	ft_error_map_wall(t_data *data);
+void	ft_error_map_small(t_data *data);
 char	*trim_space(char *str);
+void	malloc_map(t_data *data);
+void	map_to_int(t_data *data, int first_line, int last_line);
+void	check_map(t_data *data);
+void	search_player_pos(t_data *data);
 
 /* exec */
 int		minilibx_init(t_data *data);
@@ -173,5 +181,8 @@ void 	check_dup_alloc(t_data *data, int identifer);
 int		is_empty_line(char *str);
 void	add_color_in_data(t_data *data, char *str, int identifier);
 int		parse_path_and_colors(t_data *data);
+int		check_line_map(t_data *data, int i);
+void 	size_of_map(t_data *data, int i, int last_line);
+void	search_player_pos(t_data *data);
 
 #endif

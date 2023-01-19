@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:46:48 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 01:28:12 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/19 20:36:22 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ void	ft_free_matrice(char **matrice)
 	}
 	if (matrice)
 		free(matrice);
+}
+
+void 	ft_free_map(t_data *data)
+{
+	int i;
+
+	i = 0;
+	if (data->map)
+	{
+		while (i < data->map_height)
+		{
+			if (data->map[i])
+				free(data->map[i]);
+			i++;
+		}
+		free(data->map);
+	}
 }
 
 void	free_data(t_data *data)
@@ -57,4 +74,6 @@ void	free_data(t_data *data)
 	// 	mlx_destroy_window(data->mlx, data->win);
 	if (data->file_content)
 		ft_free_matrice(data->file_content);
+	if (data->map)
+		ft_free_map(data);
 }

@@ -6,7 +6,7 @@
 #    By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 00:20:18 by dcorenti          #+#    #+#              #
-#    Updated: 2023/01/19 05:31:09 by dcorenti         ###   ########.fr        #
+#    Updated: 2023/01/19 22:51:28 by dcorenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRCS = 	main.c \
 		utils/init.c \
 		utils/is_empty_line.c \
 		utils/malloc_all.c \
-		utils/set_player.c \
 		utils/trim_space.c \
 		utils/file_exist.c \
 		executor/charge_textures.c \
@@ -43,6 +42,12 @@ SRCS = 	main.c \
 		parsing/load_file_content.c \
 		parsing/parse_path_and_colors.c \
 		parsing/parsing.c \
+		parsing/check_line_map.c \
+		parsing/size_of_map.c \
+		parsing/malloc_map.c \
+		parsing/map_to_int.c \
+		parsing/check_map.c \
+		parsing/search_player_start.c \
 
 CC = gcc
 

@@ -6,13 +6,13 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:37:51 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 22:53:15 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:24:46 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-void print_map(t_data *data)
+void print_maps(t_data *data)
 {
 	int i;
 	int j;
@@ -105,6 +105,6 @@ int	create_map(t_data *data)
 	if (copy_line_in_map(data, i, "111111111111111111111111") == ERROR)
 		return(ERROR);
 	add_some_walls(data);
-	print_map(data);
+	print_maps(data);
 	return(SUCCESS);
 }
