@@ -17,19 +17,19 @@
 
 */
 
-int		size_of_line(char *str)
+int	size_of_line(char *str)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen(str) - 2;
 	while (str[i] && str[i] == ' ')
 		i--;
-	return(i + 1);
+	return (i + 1);
 }
 
-void 	size_of_map(t_data *data, int i, int last_line)
+void	size_of_map(t_data *data, int i, int last_line)
 {
-	int max_width;
+	int	max_width;
 
 	data->map_height = last_line - i + 1;
 	if (data->map_height < 3)

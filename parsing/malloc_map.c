@@ -14,7 +14,7 @@
 
 void	set_default_value(t_data *data, int line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < data->map_width)
@@ -26,8 +26,8 @@ void	set_default_value(t_data *data, int line)
 
 void	malloc_map(t_data *data)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	data->map = (int **)malloc(sizeof(int *) * data->map_height);
 	if (!data->map)

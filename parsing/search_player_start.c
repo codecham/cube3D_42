@@ -15,7 +15,7 @@
 /*
 	This file search the player starting postion and set the value corresponding
 
-	if there is more than one position, it print a error 
+	if there is more than one position, it print a error
 */
 
 void	set_orientation(t_data *data, int orientation)
@@ -39,7 +39,7 @@ void	set_orientation(t_data *data, int orientation)
 	{
 		data->dir_x = -0.99;
 		data->plane_y = 0.80;
-	}	
+	}
 }
 
 void	set_player_pos(t_data *data, int x, int y)
@@ -54,8 +54,8 @@ void	set_player_pos(t_data *data, int x, int y)
 
 void	search_player_pos(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;

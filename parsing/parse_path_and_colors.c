@@ -24,9 +24,9 @@
 		- 	3) We search what's the identifer and return a different postive value
 			for each one.
 
-		-  	4) 
+		-  	4)
 				If the identifier is 0 it means that it's not a good line.
-				
+
 				else If the identifier is equal to CEILLING or FLOOR we send to
 				add_colors_in_data
 
@@ -123,9 +123,9 @@ void	add_path_file_in_data(t_data *data, char *str, int identifier)
 
 int	parse_path_and_colors(t_data *data)
 {
-	int i;
-	int identifier;
-	
+	int	i;
+	int	identifier;
+
 	i = 0;
 	while (data->file_content[i] && config_is_full(data) == 0)
 	{

@@ -16,12 +16,12 @@
 	This function check if the map is closed by walls or not
 
 	1) if we have a 0 in border it's not close
-	
+
 	2) If we not on border we check all case around for see it it's -1 (void)
 
 */
 
-int is_border(t_data *data, int x, int y)
+int	is_border(t_data *data, int x, int y)
 {
 	if (x == 0 || x == data->map_width - 1)
 		return (1);
@@ -30,7 +30,7 @@ int is_border(t_data *data, int x, int y)
 	return (0);
 }
 
-int check_around(t_data *data, int x, int y)
+int	check_around(t_data *data, int x, int y)
 {
 	if (data->map[y][x - 1] == -1)
 		return (1);
@@ -45,8 +45,8 @@ int check_around(t_data *data, int x, int y)
 
 void	check_map(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
@@ -62,7 +62,7 @@ void	check_map(t_data *data)
 					ft_error_map_wall(data);
 			}
 			x++;
-		}		
+		}
 		x = 0;
 		y++;
 	}

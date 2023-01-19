@@ -34,7 +34,7 @@ void	add_player_pos(t_data *data, int line, int i, char *str)
 
 void	copy_one_line(t_data *data, int line, char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -53,7 +53,7 @@ void	copy_one_line(t_data *data, int line, char *str)
 
 void	map_to_int(t_data *data, int first_line, int last_line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (first_line <= last_line)

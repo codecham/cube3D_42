@@ -14,7 +14,7 @@
 
 /*
 
-	This function read in the file and copy all content in 
+	This function read in the file and copy all content in
 	char **data->file_content.
 
 	First we read and stock all the line of our file in a sigle line (char *str)
@@ -29,8 +29,8 @@
 
 char	*load_in_string(int fd)
 {
-	char *str;
-	char *tmp;
+	char	*str;
+	char	*tmp;
 
 	tmp = get_next_line(fd);
 	if (!tmp)
@@ -52,12 +52,12 @@ char	*load_in_string(int fd)
 				return (NULL);
 		}
 	}
-	return(str);
+	return (str);
 }
 
 void	load_file_content(t_data *data, int fd)
 {
-	char *str;
+	char	*str;
 
 	str = load_in_string(fd);
 	close(fd);

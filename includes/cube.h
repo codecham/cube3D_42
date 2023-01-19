@@ -53,7 +53,7 @@ typedef struct s_color
 {
 	int	r;
 	int	g;
-	int	b;	
+	int	b;
 }	t_color;
 
 typedef struct s_img
@@ -61,7 +61,7 @@ typedef struct s_img
 	void		*img;
 	char		*addr;
 	int			bits_per_pixel;
-	int			line_length;		
+	int			line_length;
 	int			width;
 	int			height;
 	int			endian;
@@ -72,7 +72,7 @@ typedef struct s_tex
 	void		*img;
 	int			*addr;
 	int			bits_per_pixel;
-	int			line_length;		
+	int			line_length;
 	int			width;
 	int			height;
 	int			endian;
@@ -177,12 +177,12 @@ void	check_argument(int argc, char **argv, int *fd);
 void	load_file_content(t_data *data, int fd);
 void	parsing(t_data *data, int fd);
 void	ft_split_cub(t_data *data, char *str);
-void 	check_dup_alloc(t_data *data, int identifer);
+void	check_dup_alloc(t_data *data, int identifer);
 int		is_empty_line(char *str);
 void	add_color_in_data(t_data *data, char *str, int identifier);
 int		parse_path_and_colors(t_data *data);
 int		check_line_map(t_data *data, int i);
-void 	size_of_map(t_data *data, int i, int last_line);
+void	size_of_map(t_data *data, int i, int last_line);
 void	search_player_pos(t_data *data);
 
 #endif

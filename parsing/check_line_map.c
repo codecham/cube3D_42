@@ -42,9 +42,9 @@ int	char_is_valid_map(char c)
 	return (0);
 }
 
-void string_is_valid(t_data *data, char *str, int line)
+void	string_is_valid(t_data *data, char *str, int line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -52,7 +52,8 @@ void string_is_valid(t_data *data, char *str, int line)
 		if (char_is_valid_map(str[i]) == 0)
 		{
 			printf("Error\n");
-			printf("line %d: Found bad character in map: %c\n", line + 1, str[i]);
+			printf("line %d: Found bad character in map: %c\n", \
+			line + 1, str[i]);
 			ft_exit(data);
 		}
 		i++;
@@ -61,12 +62,13 @@ void string_is_valid(t_data *data, char *str, int line)
 
 void	check_empty_line_eof(t_data *data, int line)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = line;
 	if (data->file_content[line] == 0)
 		return ;
-	while (data->file_content[line] && is_empty_line(data->file_content[line]) == 1)
+	while (data->file_content[line] && \
+		is_empty_line(data->file_content[line]) == 1)
 		line++;
 	if (data->file_content[line] != 0)
 	{
