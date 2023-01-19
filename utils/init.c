@@ -12,11 +12,7 @@
 
 #include "../includes/cube.h"
 
-/*
-	Simplement une fonction qui initialse notre structure
-*/
-
-void	init(t_data *data)
+void	set_data_to_null(t_data *data)
 {
 	data->floor = NULL;
 	data->ceiling = NULL;
@@ -30,14 +26,26 @@ void	init(t_data *data)
 	data->path_east = NULL;
 	data->path_west = NULL;
 	data->map = NULL;
-	data->map_height = 0;
-	data->map_width = 0;
+	data->file_content = NULL;
+}
+
+void	set_x_y_data(t_data *data)
+{
 	data->pos_x = -1;
 	data->pos_y = -1;
 	data->dir_x = 0;
 	data->dir_y = 0;
 	data->plane_x = 0;
 	data->plane_y = 0;
+}
+
+
+void	init(t_data *data)
+{
+	set_data_to_null(data);
+	set_x_y_data(data);
+	data->map_height = 0;
+	data->map_width = 0;
 	data->speed = 0.1;
 	data->wall_text = 0;
 	data->move_up = 0;
@@ -48,7 +56,6 @@ void	init(t_data *data)
 	data->rotate_right = 0;
 	data->hit = 0;
 	data->side = 0;
-	data->file_content = NULL;
 	data->screen_height = SCREEN_HEIGHT;
 	data->screen_width = SCREEN_WIDTH;
 }

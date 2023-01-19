@@ -14,7 +14,7 @@
 
 char	*trim_space(char *str)
 {
-	char *new;
+	char	*new;
 
 	new = ft_strtrim(str, " \n");
 	if (!new)

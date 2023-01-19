@@ -14,7 +14,7 @@
 
 void	ft_free_matrice(char **matrice)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!matrice)
@@ -29,9 +29,9 @@ void	ft_free_matrice(char **matrice)
 		free(matrice);
 }
 
-void 	ft_free_map(t_data *data)
+void	ft_free_map(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (data->map)
@@ -44,6 +44,20 @@ void 	ft_free_map(t_data *data)
 		}
 		free(data->map);
 	}
+}
+
+void	destroy_images(t_data *data)
+{
+	if (data->game_img)
+		mlx_destroy_image(data->mlx, data->game_img->img);
+	if (data->text_north)
+		mlx_destroy_image(data->mlx, data->text_north->img);
+	if (data->text_south)
+		mlx_destroy_image(data->mlx, data->text_south->img);
+	if (data->text_east)
+		mlx_destroy_image(data->mlx, data->text_east->img);
+	if (data->text_west)
+		mlx_destroy_image(data->mlx, data->text_west->img);
 }
 
 void	free_data(t_data *data)
@@ -60,18 +74,9 @@ void	free_data(t_data *data)
 		free(data->path_east);
 	if (data->path_west)
 		free(data->path_west);
-	// if (data->game_img)
-	// 	mlx_destroy_image(data->mlx, data->game_img->img);
-	// if (data->text_north)
-	// 	mlx_destroy_image(data->mlx, data->text_north->img);
-	// if (data->text_south)
-	// 	mlx_destroy_image(data->mlx, data->text_south->img);
-	// if (data->text_east)
-	// 	mlx_destroy_image(data->mlx, data->text_east->img);
-	// if (data->text_west)
-	// 	mlx_destroy_image(data->mlx, data->text_west->img);
-	// if (data->win)
-	// 	mlx_destroy_window(data->mlx, data->win);
+	destroy_images(data);
+	if (data->win)
+		mlx_destroy_window(data->mlx, data->win);
 	if (data->file_content)
 		ft_free_matrice(data->file_content);
 	if (data->map)
