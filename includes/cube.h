@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 16:27:55 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:30:36 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,8 @@ void	check_map(t_data *data);
 void	search_player_pos(t_data *data);
 void	check_extension_xmp(t_data *data, char *str);
 char	*ft_add_string(char *s1, char *s2);
+char	*ft_realloc_add(char *old, char c);
+char	*swap_tab_to_space(t_data *data, char *str, int i, int j);
 
 /* exec */
 int		minilibx_init(t_data *data);

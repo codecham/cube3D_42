@@ -6,7 +6,7 @@
 #    By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 00:20:18 by dcorenti          #+#    #+#              #
-#    Updated: 2023/01/20 16:28:06 by dcorenti         ###   ########.fr        #
+#    Updated: 2023/01/20 17:31:55 by dcorenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRCS = 	main.c \
 		utils/trim_space.c \
 		utils/file_exist.c \
 		utils/ft_add_string.c \
+		utils/ft_realloc_add.c \
+		utils/swap_tab_to_spaces.c \
 		executor/charge_textures.c \
 		executor/draw.c \
 		executor/event.c \

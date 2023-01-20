@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:04:57 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 16:25:48 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:31:30 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	load_file_content(t_data *data, int fd)
 	close(fd);
 	if (str == NULL)
 		ft_error(data, "Failed to reading configuration file");
+	str = swap_tab_to_space(data, str, 0, 0);
 	ft_split_cub(data, str);
 	free(str);
 }
