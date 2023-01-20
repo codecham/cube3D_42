@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:59:31 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 17:37:55 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:36:19 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*swap_tab_to_space(t_data *data, char *str, int i, int j)
 	{
 		if (str[i] == '\t')
 		{
-			while (j < 4)
+			while (j < TAB_SIZE)
 			{
 				new = ft_realloc_add(new, ' ');
 				if (!new)

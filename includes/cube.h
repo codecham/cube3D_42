@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 17:30:36 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:36:09 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@
 # define S_SOUTH 7
 # define S_EAST 8
 # define S_WEST 9
+# define TAB_SIZE 3
 
 typedef struct s_color
 {
