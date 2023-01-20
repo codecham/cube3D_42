@@ -1,51 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_char_to_string.c                            :+:      :+:    :+:   */
+/*   ft_add_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 02:35:22 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 05:44:31 by dcorenti         ###   ########.fr       */
+/*   Created: 2023/01/20 05:22:40 by dcorenti          #+#    #+#             */
+/*   Updated: 2023/01/20 05:47:21 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/cube.h"
 
-char	*empty_str_realloc(char c)
-{
-	char	*new;
-
-	new = (char *)malloc(sizeof(char) * 2);
-	if (!new)
-		return (NULL);
-	new[0] = c;
-	new[1] = '\0';
-	return (new);
-}
-
-char	*ft_add_char_to_string(char *str, char c)
+char	*ft_add_string(char *s1, char *s2)
 {
 	char	*new;
 	int		i;
+	int		j;
 
 	i = 0;
-	new = NULL;
-	if (!str)
-		return (empty_str_realloc(c));
-	new = (char *)malloc(sizeof(char) * (ft_strlen(str) + 2));
+	j = 0;
+	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!new)
-	{
-		free(str);
 		return (NULL);
-	}
-	while (str[i])
+	while (s1[i])
 	{
-		new[i] = str[i];
+		new[i] = s1[i];
 		i++;
 	}
-	new[i] = c;
-	new[i + 1] = '\0';
-	free(str);
+	while (s2[j])
+	{
+		new[i + j] = s2[j];
+		j++;
+	}
+	new[i + j] = '\0';
+	if (s1)
+		free(s1);
 	return (new);
 }

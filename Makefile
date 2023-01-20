@@ -6,7 +6,7 @@
 #    By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 00:20:18 by dcorenti          #+#    #+#              #
-#    Updated: 2023/01/19 22:51:28 by dcorenti         ###   ########.fr        #
+#    Updated: 2023/01/20 05:28:58 by dcorenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ LIBFT = ./libft/libft.a
 NAME = cub3D
 
 SRCS = 	main.c \
-		utils/create_map.c \
 		utils/exit.c \
 		utils/free_data.c \
 		utils/ft_error.c \
@@ -24,6 +23,7 @@ SRCS = 	main.c \
 		utils/malloc_all.c \
 		utils/trim_space.c \
 		utils/file_exist.c \
+		utils/ft_add_string.c \
 		executor/charge_textures.c \
 		executor/draw.c \
 		executor/event.c \

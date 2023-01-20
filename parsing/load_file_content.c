@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 00:04:57 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 06:07:19 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 05:37:21 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*load_in_string(int fd)
 		tmp = get_next_line(fd);
 		if (tmp != NULL)
 		{
-			str = ft_strjoin(str, tmp);
+			str = ft_add_string(str, tmp);
 			if (!str)
 				return (NULL);
 		}

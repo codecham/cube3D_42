@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 01:51:59 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 03:00:53 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 05:44:34 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_fill_split(t_data *data, char *str)
 
 	i = 0;
 	line = 0;
+	data->file_content[line] = NULL;
 	while (str[i])
 	{
 		data->file_content[line] = \
@@ -57,7 +58,10 @@ void	ft_fill_split(t_data *data, char *str)
 		if (data->file_content[line] == NULL)
 			ft_free_in_split(data, line, str);
 		if (str[i] == '\n')
+		{
 			line++;
+			data->file_content[line] = NULL;
+		}
 		i++;
 	}
 	data->file_content[line + 1] = 0;

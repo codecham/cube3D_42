@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 19:23:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 04:21:33 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 05:07:51 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	malloc_img(t_data *data)
 	data->game_img = (t_img *)malloc(sizeof(t_img));
 	if (!data->game_img)
 		return (ERROR);
+	data->game_img->img = NULL;
 	return (SUCCESS);
 }
 
@@ -52,6 +53,10 @@ int	malloc_textures(t_data *data)
 	if (!data->text_north || !data->text_south || !data->text_east
 		|| !data->text_west)
 		return (ERROR);
+	data->text_north->img = NULL;
+	data->text_south->img = NULL;
+	data->text_east->img = NULL;
+	data->text_west->img = NULL;
 	return (SUCCESS);
 }
 

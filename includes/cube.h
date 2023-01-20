@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 22:51:02 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 05:28:36 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,8 @@ void	malloc_map(t_data *data);
 void	map_to_int(t_data *data, int first_line, int last_line);
 void	check_map(t_data *data);
 void	search_player_pos(t_data *data);
+void	check_extension_xmp(t_data *data, char *str);
+char	*ft_add_string(char *s1, char *s2);
 
 /* exec */
 int		minilibx_init(t_data *data);

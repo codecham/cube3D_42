@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:15:25 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 20:46:57 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 05:50:09 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ void	size_of_map(t_data *data, int i, int last_line)
 	if (data->map_width < 3)
 		ft_error_map_small(data);
 }
-

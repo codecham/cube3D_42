@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 03:09:29 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 06:25:34 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 05:50:37 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,11 @@ void	check_double_identifier(t_data *data, int identifier)
 		ft_error(data, "Duplicated C identifier");
 	if (identifier == FLOOR && data->floor->r != -1)
 		ft_error(data, "Duplicated F identifier");
-
 }
 
 void	add_path_file_in_data(t_data *data, char *str, int identifier)
 {
-	int i;
+	int	i;
 
 	i = 3;
 	while (str[i] && str[i] == ' ')
@@ -118,6 +117,7 @@ void	add_path_file_in_data(t_data *data, char *str, int identifier)
 	if (identifier == WEST)
 		data->path_west = ft_strdup(&str[i]);
 	check_dup_alloc(data, identifier);
+	check_extension_xmp(data, &str[i]);
 	file_exist(data, identifier);
 }
 

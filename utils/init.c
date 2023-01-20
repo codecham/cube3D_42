@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 05:16:51 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 22:48:20 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 04:49:44 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	set_x_y_data(t_data *data)
 	data->plane_x = 0;
 	data->plane_y = 0;
 }
-
 
 void	init(t_data *data)
 {

@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 03:55:05 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/19 05:20:04 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 05:49:57 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	get_color(t_data *data, char *str, int i, int identifier)
 {
 	char	color[4];
 	int		count;
-	
+
 	count = 0;
 	while (str[i] && str[i] == ' ')
 		i++;
