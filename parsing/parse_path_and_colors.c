@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 03:09:29 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 05:50:37 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:51:37 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int	is_identifier(char *line)
 	if (line[0] == 'S' && line[1] == 'O' && line[2] == ' ')
 		return (SOUTH);
 	if (line[0] == 'W' && line[1] == 'E' && line[2] == ' ')
-		return (EAST);
-	if (line[0] == 'E' && line[1] == 'A' && line[2] == ' ')
 		return (WEST);
+	if (line[0] == 'E' && line[1] == 'A' && line[2] == ' ')
+		return (EAST);
 	if (line[0] == 'F' && line[1] == ' ')
 		return (FLOOR);
 	if (line[0] == 'C' && line[1] == ' ')

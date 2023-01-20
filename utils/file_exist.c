@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 05:22:36 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 05:47:04 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:48:37 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	check_extension_xmp(t_data *data, char *str)
 	i = ft_strlen(str) - 1;
 	if (i < 3)
 		ft_error(data, "Name of texture file is not good");
-	if (str[i] == 'x' && str[i - 1] == 'p' && str[i - 2] == 'm' \
+	if (str[i] == 'm' && str[i - 1] == 'p' && str[i - 2] == 'x' \
 		&& str[i - 3] == '.')
 		return ;
 	ft_error(data, "Texture file need to be XMP file");
