@@ -1,0 +1,15 @@
+NO ./textures/wall.xpm       
+SO ./textures/grey.xpm
+WE ./textures/blue.xpm
+EA ./textures/bricks_green.xpm
+
+F 220,100,0
+C 225,30,0
+
+11111
+10011
+10001
+111N1
+11001
+11101
+11111

@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:59:21 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 16:25:26 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:06:49 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int argc, char **argv)
 	if (malloc_all(data) == ERROR)
 		ft_error(data, "Allocation failed");
 	parsing(data, fd);
+	print_matrice(data);
 	exec(data);
 }
