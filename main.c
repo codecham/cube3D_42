@@ -25,6 +25,5 @@ int	main(int argc, char **argv)
 	if (malloc_all(data) == ERROR)
 		ft_error(data, "Allocation failed");
 	parsing(data, fd);
-	print_matrice(data);
 	exec(data);
 }
