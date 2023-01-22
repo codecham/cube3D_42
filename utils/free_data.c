@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:46:48 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 05:14:06 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:45:05 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,26 +48,36 @@ void	ft_free_map(t_data *data)
 
 void	destroy_images(t_data *data)
 {
-	if (data->game_img->img)
-		mlx_destroy_image(data->mlx, data->game_img->img);
-	if (data->text_north->img)
-		mlx_destroy_image(data->mlx, data->text_north->img);
-	if (data->text_south->img)
-		mlx_destroy_image(data->mlx, data->text_south->img);
-	if (data->text_east->img)
-		mlx_destroy_image(data->mlx, data->text_east->img);
-	if (data->text_west->img)
-		mlx_destroy_image(data->mlx, data->text_west->img);
 	if (data->game_img)
+	{
+		if (data->game_img->img)
+			mlx_destroy_image(data->mlx, data->game_img->img);
 		free(data->game_img);
+	}
 	if (data->text_north)
+	{
+		if (data->text_north->img)
+			mlx_destroy_image(data->mlx, data->text_north->img);
 		free(data->text_north);
+	}
 	if (data->text_south)
+	{
+		if (data->text_south->img)
+			mlx_destroy_image(data->mlx, data->text_south->img);
 		free(data->text_south);
+	}
 	if (data->text_east)
+	{
+		if (data->text_east->img)
+			mlx_destroy_image(data->mlx, data->text_east->img);
 		free(data->text_east);
+	}
 	if (data->text_west)
+	{
+		if (data->text_west->img)
+			mlx_destroy_image(data->mlx, data->text_west->img);
 		free(data->text_west);
+	}
 }
 
 void	free_data(t_data *data)

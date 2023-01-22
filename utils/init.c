@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 05:16:51 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 04:49:44 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:38:28 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,6 @@ void	init(t_data *data)
 	data->side = 0;
 	data->screen_height = SCREEN_HEIGHT;
 	data->screen_width = SCREEN_WIDTH;
+	if (data->screen_height <= 0 || data->screen_width <= 0)
+		ft_error(data, "Screen size must be bigger than 0");
 }

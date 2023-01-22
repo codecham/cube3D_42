@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:32:55 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 22:47:15 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:48:58 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,6 @@ void	dda_algorithm(t_data *data)
 	}
 	get_wall_text(data);
 	data->hit = 0;
-	if (data->side == 0)
-		data->perp_wall_dist = data->side_dist_x - data->delta_dist_x;
-	else
-		data->perp_wall_dist = data->side_dist_y - data->delta_dist_y;
 }
 
 void	set_step(t_data *data)

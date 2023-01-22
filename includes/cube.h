@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:37:39 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 21:10:11 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:49:12 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ typedef struct s_data
 	double			side_dist_y;
 	double			delta_dist_x;
 	double			delta_dist_y;
-	double			perp_wall_dist;
 	double			wall_dist;
 	double			speed;
 	double			tex_pos;
