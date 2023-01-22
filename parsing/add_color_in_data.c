@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 03:55:05 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 05:49:57 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/22 16:34:39 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	add_rgb(t_data *data, t_color *color, int value)
 		color->r = value;
 	else if (color->g == -1)
 		color->g = value;
-	else
+	else if (color->b == -1)
 		color->b = value;
 }
 
@@ -71,8 +71,14 @@ void	add_color_in_data(t_data *data, char *str, int identifier)
 		count++;
 		if (str[i] && str[i] != ' ' && str[i] != ',')
 			error_color(data, str[i]);
-		if (count == 3 && str[i] == '\0')
+		if (count == 3)
+		{
+			while (str[i] && str[i] == ' ')
+				i++;
+			if (str[i] != '\0')
+				error_color(data, str[i]);
 			break ;
+		}
 		while (str[i] && str[i] == ' ')
 			i++;
 		if (str[i] != ',')

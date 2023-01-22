@@ -6,7 +6,7 @@
 #    By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 00:20:18 by dcorenti          #+#    #+#              #
-#    Updated: 2023/01/20 17:31:55 by dcorenti         ###   ########.fr        #
+#    Updated: 2023/01/20 21:08:43 by dcorenti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,13 +55,11 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror -l mlx -framework OpenGL -framework Appkit
 
-INCLUDES = -I./includes
 
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C ./libft
-	cp libft/libft.a $(NAME)
 	$(CC) $(FLAGS) $(INCLUDES) $(LIBFT) $(SRCS)-o $(NAME)
 
 all : $(NAME)
