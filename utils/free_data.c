@@ -46,14 +46,8 @@ void	ft_free_map(t_data *data)
 	}
 }
 
-void	destroy_images(t_data *data)
+void	destroy_textures(t_data *data)
 {
-	if (data->game_img)
-	{
-		if (data->game_img->img)
-			mlx_destroy_image(data->mlx, data->game_img->img);
-		free(data->game_img);
-	}
 	if (data->text_north)
 	{
 		if (data->text_north->img)
@@ -77,6 +71,16 @@ void	destroy_images(t_data *data)
 		if (data->text_west->img)
 			mlx_destroy_image(data->mlx, data->text_west->img);
 		free(data->text_west);
+	}	
+}
+
+void	destroy_image(t_data *data)
+{
+	if (data->game_img)
+	{
+		if (data->game_img->img)
+			mlx_destroy_image(data->mlx, data->game_img->img);
+		free(data->game_img);
 	}
 }
 
@@ -94,7 +98,8 @@ void	free_data(t_data *data)
 		free(data->path_east);
 	if (data->path_west)
 		free(data->path_west);
-	destroy_images(data);
+	destroy_image(data);
+	destroy_textures(data);
 	if (data->win)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->file_content)

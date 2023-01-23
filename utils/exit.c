@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 18:39:48 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/17 22:55:00 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:27:04 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 void	ft_exit(t_data *data)
 {
 	free_data(data);
+	system("leaks cub3D");
 	exit(0);
 }

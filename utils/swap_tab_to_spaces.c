@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:59:31 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/23 14:51:46 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:25:12 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ char	*swap_tab_to_space(t_data *data, char *str, int i, int j)
 	char	*new;
 
 	new = NULL;
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == '\t')
 		{
-			while (j < TAB_SIZE)
+			while (++j < TAB_SIZE)
 			{
 				new = ft_realloc_add(new, ' ');
 				if (!new)
 					ft_error(data, "Allocation failed");
-				j++;
 			}
 			j = 0;
 		}
@@ -36,7 +35,6 @@ char	*swap_tab_to_space(t_data *data, char *str, int i, int j)
 			if (!new)
 				ft_error(data, "Allocation failed");
 		}
-		i++;
 	}
 	if (str)
 		free(str);

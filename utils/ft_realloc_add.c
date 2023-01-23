@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:26:17 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/23 14:54:19 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:25:16 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_realloc_add(char *old, char c)
 	int		i;
 	char	*new;
 
-	i = 0;
+	i = -1;
 	if (!old)
 	{
 		old = (char *)malloc(sizeof(char) * 2);
@@ -30,11 +30,8 @@ char	*ft_realloc_add(char *old, char c)
 	new = (char *)malloc(sizeof(char) * (ft_strlen(old) + 2));
 	if (!new)
 		return (NULL);
-	while (old[i])
-	{
+	while (old[++i])
 		new[i] = old[i];
-		i++;
-	}
 	new[i] = c;
 	new[i + 1] = '\0';
 	if (old)
