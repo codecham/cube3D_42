@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 05:16:51 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/22 16:38:28 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:56:48 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	init(t_data *data)
 {
 	set_data_to_null(data);
 	set_x_y_data(data);
+	data->mlx = NULL;
+	data->win = NULL;
 	data->map_height = 0;
 	data->map_width = 0;
 	data->speed = 0.1;

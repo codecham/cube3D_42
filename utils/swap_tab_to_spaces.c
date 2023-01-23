@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:59:31 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 18:36:19 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:51:46 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*swap_tab_to_space(t_data *data, char *str, int i, int j)
 {
 	char	*new;
 
+	new = NULL;
 	while (str[i])
 	{
 		if (str[i] == '\t')
@@ -37,5 +38,7 @@ char	*swap_tab_to_space(t_data *data, char *str, int i, int j)
 		}
 		i++;
 	}
+	if (str)
+		free(str);
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: dcorenti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:26:17 by dcorenti          #+#    #+#             */
-/*   Updated: 2023/01/20 17:26:18 by dcorenti         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:54:19 by dcorenti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_realloc_add(char *old, char c)
 	if (!old)
 	{
 		old = (char *)malloc(sizeof(char) * 2);
+		if (!old)
+			return (NULL);
 		old[0] = c;
 		old[1] = '\0';
 		return (old);
